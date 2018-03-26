@@ -6,6 +6,7 @@ public class CharacterController : MonoBehaviour {
 
     public GameObject fireball;
     public Transform fireSpawn;
+    public int lineVertices = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -17,14 +18,20 @@ public class CharacterController : MonoBehaviour {
 	
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Instantiate(fireball, fireSpawn.position, Quaternion.identity);
+            GameObject obj = Instantiate(fireball, fireSpawn.position, Quaternion.identity);
+            Vector2 startVelocity = obj.GetComponent<ProjectileController>().velocity;
+            DrawTrajectory(fireSpawn.position, startVelocity);
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            
         }
 
 	}
 
     public void DrawTrajectory(Vector2 startPos, Vector2 startVelocity)
     {
-        int verts = 20;
+        int verts = lineVertices;
         LineRenderer line = GetComponent<LineRenderer>();
         line.SetVertexCount(verts);
  
