@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour {
 
+    public GameObject fireball;
+    public Transform fireSpawn;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,7 +17,7 @@ public class CharacterController : MonoBehaviour {
 	
         if (Input.GetKeyDown(KeyCode.X))
         {
-            print("pew pew");
+            Instantiate(fireball, fireSpawn.position, Quaternion.identity);
         }
 
 	}
