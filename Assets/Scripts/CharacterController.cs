@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour {
     public Transform fireSpawn;
     public int lineVertices = 100;
 
+    public Vector2 projectileVelocity;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,12 +17,13 @@ public class CharacterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        DrawTrajectory(fireSpawn.position, projectileVelocity);
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             GameObject obj = Instantiate(fireball, fireSpawn.position, Quaternion.identity);
-            Vector2 startVelocity = obj.GetComponent<ProjectileController>().velocity;
-            DrawTrajectory(fireSpawn.position, startVelocity);
+            obj.GetComponent<ProjectileController>().velocity = projectileVelocity;
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {

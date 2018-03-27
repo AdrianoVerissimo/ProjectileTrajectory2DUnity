@@ -376,6 +376,7 @@ MonoBehaviour:
   fireball: {fileID: 1294775429920810, guid: 06921b12442f5e2438a960169217df9d, type: 2}
   fireSpawn: {fileID: 1638416310}
   lineVertices: 100
+  projectileVelocity: {x: 3, y: 3}
 --- !u!1 &1638416309
 GameObject:
   m_ObjectHideFlags: 0
