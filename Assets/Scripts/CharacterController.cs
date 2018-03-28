@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour {
 
     public Vector2 projectileVelocity;
 
-    private float velX = 0f, velY = 0f;
+    private float velX = 3f, velY = 3f;
 
     // Use this for initialization
     void Start () {
