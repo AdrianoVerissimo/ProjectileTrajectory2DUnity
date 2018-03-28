@@ -18,9 +18,9 @@ public class ProjectileController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("ground"))
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }*/
+            GetComponent<Rigidbody2D>().drag = 1f;
+        }
     }
 }
