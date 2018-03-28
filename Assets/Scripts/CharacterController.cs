@@ -7,16 +7,38 @@ public class CharacterController : MonoBehaviour {
     public GameObject fireball;
     public Transform fireSpawn;
     public int lineVertices = 100;
+    public float intervalPower = 1f;
 
     public Vector2 projectileVelocity;
 
-	// Use this for initialization
-	void Start () {
+    private float velX = 0f, velY = 0f;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        //direcionais
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            velY += intervalPower;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            velY -= intervalPower;
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            velX += intervalPower;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            velX -= intervalPower;
+        }
+        projectileVelocity = new Vector2(velX, velY);
 
         DrawTrajectory(fireSpawn.position, projectileVelocity);
 
@@ -27,10 +49,10 @@ public class CharacterController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            
+
         }
 
-	}
+    }
 
     public void DrawTrajectory(Vector2 startPos, Vector2 startVelocity)
     {
